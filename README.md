@@ -138,4 +138,4 @@ MIT License
 ---
 
 ## 📬 Contact
-For inquiries or contributions, reach out at navinkumar02032005@gmail.com
+For inquiries or contributions, reach out at entreconnect@gmail.com
