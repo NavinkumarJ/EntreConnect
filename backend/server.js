@@ -14,7 +14,7 @@ connectDB();
 
 app.use(express.json());
 app.use(cookieParser())
-app.use(cors({origin: process.env.VITE_BACKEND_URL, credentials: true}));
+app.use(cors({origin: process.env.FRONTEND_URL, credentials: true}));
 
 // API Endpoints
 app.get("/", (req, res) => {
