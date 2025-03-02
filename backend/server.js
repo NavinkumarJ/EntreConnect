@@ -14,7 +14,23 @@ connectDB();
 
 app.use(express.json());
 app.use(cookieParser())
-app.use(cors({origin: process.env.FRONTEND_URL, credentials: true}));
+
+
+// const allowedOrigins = [
+//   process.env.FRONTEND_URL || "http://localhost:5173"
+// ];
+
+app.use(cors({
+  origin: process.env.FRONTEND_URL,
+  credentials: true, // Allow cookies and authentication headers
+  methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
+  allowedHeaders: ["Content-Type", "Authorization"] // Allowed headers
+}));
+
+app.get("/test-cors", (req, res) => {
+    res.json({ message: "CORS is working!" });
+  });
+  
 
 // API Endpoints
 app.get("/", (req, res) => {
