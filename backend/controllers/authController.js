@@ -2,6 +2,10 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import userModel from "../models/userModel.js";
 import transporter from "../config/nodemailer.js";
+<<<<<<< HEAD
+=======
+import { EMAIL_VERIFY_TEMPLATE,PASSWORD_RESET_TEMPLATE,WELCOME_TEMPLATE } from "../config/emailTemplates.js";
+>>>>>>> a1f9d79 (Updated Code)
 
 export const register = async (req,res) => {
 
@@ -36,8 +40,13 @@ export const register = async (req,res) => {
             from: process.env.SENDER_EMAIL,
             to: email,
             subject: 'Welcome to EntreConnect',
+<<<<<<< HEAD
             text: `Welcome to EntreConnect website. Your account has
             been created with email id: ${email}`
+=======
+            // text: `Welcome to EntreConnect website. Your account has been created with email id: ${email}`
+            html: WELCOME_TEMPLATE.replace("{{name}}",name),
+>>>>>>> a1f9d79 (Updated Code)
         }
 
         const ans= await transporter.sendMail(mailOptions);
@@ -96,11 +105,19 @@ export const logout = async (req,res)=>{
 
 export const sendVerifyOtp = async (req,res)=>{
     try{   
+<<<<<<< HEAD
         const {userId,email} = req.body;
         // console.log(userId);
         const user = await userModel.findById(userId);
         // console.log(req.body,user.verifyOtp);
         console.log("",user);
+=======
+        const {userId} = req.body;
+
+        const user = await userModel.findById(userId);
+        const email = user.email;
+
+>>>>>>> a1f9d79 (Updated Code)
         if(user.isAccountVerified){
             return res.json({success:false,message:"Account Already verified"});
         }
@@ -111,11 +128,16 @@ export const sendVerifyOtp = async (req,res)=>{
         user.verifyOtpExpireAt = Date.now() + 24 * 60 * 1000;
 
         await user.save();
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> a1f9d79 (Updated Code)
         const mailOptions = {
             from: process.env.SENDER_EMAIL,
             to: email,
             subject: 'Account Verification OTP',
+<<<<<<< HEAD
             from: process.env.SENDER_EMAIL,
             to: email,
             subject: 'Welcome to EntreConnect',
@@ -123,6 +145,13 @@ export const sendVerifyOtp = async (req,res)=>{
         }
         await transporter.sendMail(mailOptions); 
 
+=======
+            // text: `Your OTP is ${otp}. Verify your account using this OTP.`,
+            html: EMAIL_VERIFY_TEMPLATE.replace("{{otp}}",otp)
+        }
+        const ans=await transporter.sendMail(mailOptions); 
+        console.log(ans);
+>>>>>>> a1f9d79 (Updated Code)
         return res.json({success:true, message:"Verification OTP sent on Email"});
     }catch(err){
         return res.json({success:false, message:err.message});
@@ -194,11 +223,17 @@ export const sendResetOtp = async (req,res)=>{
         const mailOptions = {
             from: process.env.SENDER_EMAIL,
             to: email,
+<<<<<<< HEAD
             subject: 'Account Verification OTP',
             from: process.env.SENDER_EMAIL,
             to: email,
             subject: 'Password Reset OTP', 
             text: `Your OTP for resetting your password is ${otp}.Use this OTP to proceed with resetting your password.`
+=======
+            subject: 'Password Reset OTP', 
+            // text: `Your OTP for resetting your password is ${otp}.Use this OTP to proceed with resetting your password.`
+            html: PASSWORD_RESET_TEMPLATE.replace("{{otp}}", otp)
+>>>>>>> a1f9d79 (Updated Code)
         }
         await transporter.sendMail(mailOptions); 
 
@@ -231,7 +266,11 @@ export const resetPassword = async (req,res)=>{
         
         await user.save();
 
+<<<<<<< HEAD
         return res.json({ success: false, message:'Password has been reset successfully'});
+=======
+        return res.json({ success: true, message:'Password has been reset successfully'});
+>>>>>>> a1f9d79 (Updated Code)
 
     }catch(err){
         return res.json({success:false, message:err.message});

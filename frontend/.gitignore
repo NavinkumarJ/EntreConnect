@@ -22,8 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+<<<<<<< HEAD
 node_modules/
 dist/
 .env
 .vscode/
 .idea/
+=======
+>>>>>>> a1f9d79 (Updated Code)

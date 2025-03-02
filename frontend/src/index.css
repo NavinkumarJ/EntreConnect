@@ -4,4 +4,15 @@
 @tailwind utilities;
 *{
   font-family: "Outfit", serif;
+<<<<<<< HEAD
+=======
+}
+
+.active hr{
+  @apply block
+}
+
+::-webkit-scrollbar{
+  @apply hidden
+>>>>>>> a1f9d79 (Updated Code)
 }
