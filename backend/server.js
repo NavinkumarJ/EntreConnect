@@ -26,6 +26,7 @@ app.use(cors({
   methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
   allowedHeaders: ["Content-Type", "Authorization"] // Allowed headers
 }));
+console.log("Allowed Origin:", process.env.FRONTEND_URL);
 
 app.get("/test-cors", (req, res) => {
     res.json({ message: "CORS is working!" });
