@@ -1,16 +1,8 @@
-<<<<<<< HEAD
-import React from 'react'
-
-const ResetPassword = () => {
-  return (
-    <div>ResetPassword</div>
-=======
 import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { assets } from '../assets/assets'
 import { AppContent } from '../context/AppContext'
 import axios from 'axios'
-import e from 'cors'
 import { toast } from 'react-toastify'
 
 const ResetPassword = () => {
@@ -157,7 +149,6 @@ const ResetPassword = () => {
     }
 
     </div>
->>>>>>> a1f9d79 (Updated Code)
   )
 }
 
