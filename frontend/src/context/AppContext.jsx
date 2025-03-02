@@ -1,22 +1,12 @@
 import axios from "axios";
-<<<<<<< HEAD
-import { createContext, useState } from "react";
-=======
 import { createContext, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
->>>>>>> a1f9d79 (Updated Code)
 import { toast } from "react-toastify";
 
 export const AppContent = createContext()
 
 export const AppContextProvider = (props)=>{
 
-<<<<<<< HEAD
-    const backendUrl = import.meta.env.VITE_BACKEND_URL
-    const [isLoggedin, setIsLoggedin] = useState(false);
-    const [userData, setUserData] = useState(false);
-
-=======
     axios.defaults.withCredentials = true;
 
     const location = useLocation();
@@ -38,7 +28,6 @@ export const AppContextProvider = (props)=>{
         }
     }
 
->>>>>>> a1f9d79 (Updated Code)
     const getUserData = async ()=>{
         try {
             const { data } = await axios.get(backendUrl + '/api/user/data');
@@ -52,8 +41,6 @@ export const AppContextProvider = (props)=>{
         }
     }
 
-<<<<<<< HEAD
-=======
     useEffect(()=>{
         getAuthState();
     },[])
@@ -67,20 +54,15 @@ export const AppContextProvider = (props)=>{
         }
     }, [location.pathname]);
 
->>>>>>> a1f9d79 (Updated Code)
     const value = {
         backendUrl,
         isLoggedin,
         setIsLoggedin,
         userData,
         setUserData,
-<<<<<<< HEAD
-        getUserData
-=======
         getUserData,
         showDash,
         setShowDash
->>>>>>> a1f9d79 (Updated Code)
     }
 
     return (

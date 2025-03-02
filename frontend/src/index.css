@@ -1,18 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-*{
-  font-family: "Outfit", serif;
-<<<<<<< HEAD
-=======
+
+* {
+  font-family: theme("fontFamily.outfit");
 }
 
-.active hr{
-  @apply block
+
+.active hr {
+  @apply block;
 }
 
-::-webkit-scrollbar{
-  @apply hidden
->>>>>>> a1f9d79 (Updated Code)
+/* Use standard CSS instead of @apply */
+::-webkit-scrollbar {
+  display: none; /* Instead of @apply hidden */
 }

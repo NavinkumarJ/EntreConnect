@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-import React from 'react'
-
-const EmailVerify = () => {
-  return (
-    <div>EmailVerify</div>
-=======
 import React, { useContext, useEffect } from 'react'
 import { assets } from '../assets/assets'
 import { useNavigate } from 'react-router-dom'
@@ -86,7 +79,6 @@ const EmailVerify = () => {
       <button className='w-full py-3 rounded-full bg-gradient-to-r from-indigo-500 to-indigo-900 text-white'>Verify email</button>
       </form>
     </div>
->>>>>>> a1f9d79 (Updated Code)
   )
 }
 
